@@ -5,6 +5,7 @@ const FeaturedVideo = () => {
     videoContainer: {
       height: "50%",
       width: "60%",
+      maxWidth: "500px",
       
     },
   };

@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
 const AudioPlayer = () => {
-    const [songTitle, setSongTitle] = useState("LES Vol. 11 - Happy Untitled");
+    const [songTitle, setSongTitle] = useState("Raw Jam Session 3 - Myan!");
     // setSongTitle("Song Title");
     const styles = {
         audioPlayerContainer: {
@@ -36,7 +36,7 @@ const AudioPlayer = () => {
             '&:hover': {
                 filter: "brightness(0.8)"
             },
-            cursor : "pointer"
+            cursor: "pointer"
         },
         controlsContainer: {
             display: "flex",
@@ -46,7 +46,7 @@ const AudioPlayer = () => {
             height: "100%",
             width: "80%",
         },
-        overlay:  {
+        overlay: {
             position: "absolute",
             top: "0",
             left: "0",
@@ -71,7 +71,7 @@ const AudioPlayer = () => {
             opacity: "1"
         }
     }
-    const [songProgress, setSongProgress] = useState(0); 
+    const [songProgress, setSongProgress] = useState(0);
     useEffect(() => {
         const player = document.getElementById('player') as HTMLAudioElement;
         player.addEventListener('timeupdate', () => {
@@ -129,30 +129,30 @@ const AudioPlayer = () => {
 
     return (
         <Box sx={styles.audioPlayerContainer}>
-            <Box sx={{position: "relative"}}>
-                <Box 
+            <Box sx={{ position: "relative" }}>
+                <Box
                     sx={styles.albumArtContainer}
                     component="img"
                     src="../public/album.png"
-                                  
+
                 />
-                <Box sx={isPlaying()? {...styles.overlay} : {...styles.overlay, ...styles.isNotPlaying} } onClick={() => {albumClick()}} > { isPlaying() ? 'Pause' : 'Play' }</Box>
+                <Box sx={isPlaying() ? { ...styles.overlay } : { ...styles.overlay, ...styles.isNotPlaying }} onClick={() => { albumClick() }} > {isPlaying() ? 'Pause' : 'Play'}</Box>
             </Box>
 
             <Box sx={styles.controlsContainer}>
                 {songTitle}
-                <audio id="player" src="../public/LESvol11-happy untitled.wav"/>
-                <Box sx ={{display: "flex", flexDirection: "row", width: "100%"}}>
-                    <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", padding:"5px"}}>
+                <audio id="player" src="../public/jam_myan.mp3" />
+                <Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
+                    <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5px" }}>
                         {convertTimeToDisplay(songProgress)}
                     </Box>
-                    <ProgressBar progressPercentage={getSongProgress()} setProgressPercentage={() => {}}/>
-                    <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", padding:"5px"}}>
+                    <ProgressBar progressPercentage={getSongProgress()} setProgressPercentage={() => { }} />
+                    <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5px" }}>
                         {convertTimeToDisplay(getSongLength())}
                     </Box>
-                    
+
                 </Box>
-                
+
             </Box>
         </Box>
 
