@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
 const AudioPlayer = () => {
-    const [songTitle, setSongTitle] = useState("Raw Jam Session 3 - Myan!");
+    const songTitle = "Raw Jam Session 3 - Myan!";
     // setSongTitle("Song Title");
     const styles = {
         audioPlayerContainer: {
@@ -133,7 +133,7 @@ const AudioPlayer = () => {
                 <Box
                     sx={styles.albumArtContainer}
                     component="img"
-                    src="../public/album.png"
+                    src="/album.png"
 
                 />
                 <Box sx={isPlaying() ? { ...styles.overlay } : { ...styles.overlay, ...styles.isNotPlaying }} onClick={() => { albumClick() }} > {isPlaying() ? 'Pause' : 'Play'}</Box>
@@ -141,7 +141,7 @@ const AudioPlayer = () => {
 
             <Box sx={styles.controlsContainer}>
                 {songTitle}
-                <audio id="player" src="../public/jam_myan.mp3" />
+                <audio id="player" src="/jam_myan.mp3" />
                 <Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
                     <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5px" }}>
                         {convertTimeToDisplay(songProgress)}

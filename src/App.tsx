@@ -1,26 +1,24 @@
 
 import "./App.css";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NavMenu from "./NavMenu";
 import AudioPlayer from "./AudioPlayer";
 import Header from "./Header";
 import { Box } from "@mui/material";
-import MainPage from "./MainPage";
+// import MainPage from "./MainPage";
 import { useState } from "react";
-import { HashRouter, Routes, Route} from "react-router-dom";
-import ContactPage from "./ContactPage";
-import AboutPage from "./AboutPage";
-import MerchPage from "./MerchPage";
-import LinksPage from "./LinksPage";
-import MusicPage from "./MusicPage";
+import MainPage from "./MainPage";
+// import { Routes, Route} from "react-router-dom";
+// import ContactPage from "./ContactPage";
+// import AboutPage from "./AboutPage";
+// import MerchPage from "./MerchPage";
+// import LinksPage from "./LinksPage";
+// import MusicPage from "./MusicPage";
 
 function App() {
-  const theme = createTheme({
-  });
   const styles = {
     appContainer: {
       height: '100vh',
-      backgroundImage: 'url("../public/tile.png")',
+      backgroundImage: 'url("/tile.png")',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
@@ -37,8 +35,8 @@ function App() {
       <Box sx={styles.appContainer} >
         <Header navMenuClick={() => {navMenuClick()}}/>
         <NavMenu isOpen={isNavMenuOpen} setIsOpen={setIsNavMenuOpen} />
-        
-          <Routes>
+          <MainPage />
+          {/* <Routes>
             <Route path="/" element={<MainPage />} />     
             <Route path="/about" element={<AboutPage />} />
             <Route path="/links" element={<LinksPage />} />
@@ -46,7 +44,7 @@ function App() {
             <Route path="/merch" element={<MerchPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
-        
+         */}
         
         <AudioPlayer />
       </Box>
