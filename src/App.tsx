@@ -9,7 +9,7 @@ import { useState } from "react";
 import MainPage from "./MainPage";
 import { Routes, Route} from "react-router-dom";
 import ContactPage from "./ContactPage";
-
+import { songs } from "./Songs";
 function App() {
   const styles = {
     appContainer: {
@@ -25,7 +25,12 @@ function App() {
       setIsNavMenuOpen(true);
     }
   }
+  const getRandomSongIndex = () => {
+    return Math.floor(Math.random() * songs.length);
+  }
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
+  const [currentSong, setCurrentSong] = useState(songs[getRandomSongIndex()]);
+  // setCurrentSong(songs[0])
   return (
 
       <Box sx={styles.appContainer} >
@@ -36,7 +41,7 @@ function App() {
             <Route path="/contact" element={<ContactPage /> } />
           </Routes>
         
-        <AudioPlayer />
+        <AudioPlayer currentSong={currentSong}/>
       </Box>
 
   );

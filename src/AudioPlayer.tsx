@@ -1,8 +1,11 @@
 import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
-const AudioPlayer = () => {
-    const songTitle = "Raw Jam Session 3 - Myan!";
+import { Song } from "./Songs";
+interface AudioPlayerProps {
+    currentSong: Song;
+}
+const AudioPlayer = (props: AudioPlayerProps) => {
     const styles = {
         audioPlayerContainer: {
             border: "1px solid black",
@@ -149,8 +152,8 @@ const AudioPlayer = () => {
             </Box>
 
             <Box sx={styles.controlsContainer}>
-                {songTitle}
-                <audio id = "player" src="https://dl.dropboxusercontent.com/scl/fi/uz9zk1kb87n5wanzzezce/jam_myan.mp3?rlkey=hcmh6lfpi5acy6cwxjo6wwkfm&st=o0wfegj7" />
+                {props.currentSong.title}
+                <audio id = "player" src={props.currentSong.url} />
                 <Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
                     <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5px" }}>
                         {convertTimeToDisplay(songProgress)}
