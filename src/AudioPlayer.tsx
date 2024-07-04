@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
 const AudioPlayer = () => {
     const songTitle = "Raw Jam Session 3 - Myan!";
-    // setSongTitle("Song Title");
     const styles = {
         audioPlayerContainer: {
             border: "1px solid black",
@@ -151,7 +150,7 @@ const AudioPlayer = () => {
 
             <Box sx={styles.controlsContainer}>
                 {songTitle}
-                <audio id="player" src="/jam_myan.mp3" />
+                <audio id = "player" src="https://dl.dropboxusercontent.com/scl/fi/uz9zk1kb87n5wanzzezce/jam_myan.mp3?rlkey=hcmh6lfpi5acy6cwxjo6wwkfm&st=o0wfegj7" />
                 <Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
                     <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5px" }}>
                         {convertTimeToDisplay(songProgress)}
