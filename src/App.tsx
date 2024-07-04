@@ -29,7 +29,8 @@ function App() {
     return Math.floor(Math.random() * songs.length);
   }
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songs[getRandomSongIndex()]);
+  // const [currentSong, setCurrentSong] = useState(songs[getRandomSongIndex()]);
+  const currentSong = songs[getRandomSongIndex()];
   // setCurrentSong(songs[0])
   return (
 
