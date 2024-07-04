@@ -7,12 +7,8 @@ import { Box } from "@mui/material";
 // import MainPage from "./MainPage";
 import { useState } from "react";
 import MainPage from "./MainPage";
-// import { Routes, Route} from "react-router-dom";
-// import ContactPage from "./ContactPage";
-// import AboutPage from "./AboutPage";
-// import MerchPage from "./MerchPage";
-// import LinksPage from "./LinksPage";
-// import MusicPage from "./MusicPage";
+import { Routes, Route} from "react-router-dom";
+import ContactPage from "./ContactPage";
 
 function App() {
   const styles = {
@@ -35,16 +31,10 @@ function App() {
       <Box sx={styles.appContainer} >
         <Header navMenuClick={() => {navMenuClick()}}/>
         <NavMenu isOpen={isNavMenuOpen} setIsOpen={setIsNavMenuOpen} />
-          <MainPage />
-          {/* <Routes>
-            <Route path="/" element={<MainPage />} />     
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/links" element={<LinksPage />} />
-            <Route path="/music" element={<MusicPage />} />
-            <Route path="/merch" element={<MerchPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+          <Routes>
+             <Route path="/" element={<MainPage />} />     
+            <Route path="/contact" element={<ContactPage /> } />
           </Routes>
-         */}
         
         <AudioPlayer />
       </Box>

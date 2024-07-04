@@ -94,6 +94,15 @@ const AudioPlayer = () => {
         return 0;
     }
 
+    const setPlayerProgress = (newProgress: number) => {
+        const player = document.getElementById('player') as HTMLAudioElement;
+        console.log(newProgress / 100 * player.duration)
+        if (player) {
+            player.currentTime = newProgress / 100 * player.duration;
+        }
+    }
+
+
     const play = () => {
         const player = document.getElementById('player') as HTMLAudioElement;
         player.play();
@@ -146,13 +155,11 @@ const AudioPlayer = () => {
                     <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5px" }}>
                         {convertTimeToDisplay(songProgress)}
                     </Box>
-                    <ProgressBar progressPercentage={getSongProgress()} setProgressPercentage={() => { }} />
+                    <ProgressBar progressPercentage={getSongProgress()} setProgressPercentage={(newPercentage) => {setPlayerProgress(newPercentage)}} />
                     <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5px" }}>
                         {convertTimeToDisplay(getSongLength())}
                     </Box>
-
                 </Box>
-
             </Box>
         </Box>
 
