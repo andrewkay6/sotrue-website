@@ -1,10 +1,20 @@
 import Box from "@mui/material/Box";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import YoutubeIcon from '@mui/icons-material/YouTube';
+import { FACEBOOK_LINK, INSTAGRAM_LINK, YOUTUBE_LINK } from "./Constants";
 interface HeaderProps {
   navMenuClick: () => void;
 }
 const Header = (props: HeaderProps) => {
+  const navigate = useNavigate();
+
+  const openLinkInNewTab = (link: string) => {
+    window.open(link, "_blank");
+  }
   const styles = {
     headerContainer: {
       display: "flex",
@@ -21,6 +31,7 @@ const Header = (props: HeaderProps) => {
       fontWeight: "900",
       fontSize: "40px",
       fontStyle: "italic",
+      cursor: "pointer",
       // backgroundColor: "#d3ccd4",
     },
     navMenuButton: {
@@ -39,8 +50,19 @@ const Header = (props: HeaderProps) => {
         <MenuIcon sx={{ transform: "scale(1.5)" }} />
       </Box>
 
-      <Typography sx={styles.headerFont}>So True</Typography>
-      <Box />
+      <Typography 
+        sx={styles.headerFont}
+        onClick={() => {
+          navigate("/");
+        }}
+        >
+          SO TRUE
+        </Typography>
+      <Box >
+        <FacebookIcon sx={{cursor: "pointer"}} onClick={() => {openLinkInNewTab(FACEBOOK_LINK)}}/>
+        <InstagramIcon sx={{cursor: "pointer"}} onClick={() => {openLinkInNewTab(INSTAGRAM_LINK)}}/>
+        <YoutubeIcon sx={{cursor: "pointer"}} onClick={() => {openLinkInNewTab(YOUTUBE_LINK)}}/>
+      </Box>
     </Box>
   );
 };
