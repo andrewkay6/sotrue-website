@@ -13,7 +13,7 @@ import ContactPage from "./ContactPage";
 function App() {
   const styles = {
     appContainer: {
-      height: '100vh',
+      height: '100%',
       backgroundImage: 'url("/tile.png")',
       display: 'flex',
       flexDirection: 'column',

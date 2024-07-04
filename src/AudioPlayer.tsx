@@ -63,6 +63,7 @@ const AudioPlayer = () => {
             opacity: "0",
             transition: "0.5s ease",
             cursor: "pointer",
+            userSelect: "none",
             '&:hover': {
                 opacity: "1"
             }
