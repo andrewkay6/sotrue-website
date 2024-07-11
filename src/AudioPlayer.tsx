@@ -2,8 +2,13 @@ import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
 import { Song } from "./Songs";
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import { Typography } from "@mui/material";
 interface AudioPlayerProps {
     currentSong: Song;
+    handleNextSong: () => void;
+    handlePreviousSong: () => void;
 }
 const AudioPlayer = (props: AudioPlayerProps) => {
     const styles = {
@@ -19,7 +24,18 @@ const AudioPlayer = (props: AudioPlayerProps) => {
             backgroundColor: "#6e6471",
             fontWeight: "700",
             justifyContent: "center",
-
+        },
+        skipIcon: {
+            fontSize: "30px",
+            cursor: "pointer",
+        },
+        nowPlayingTitle: {
+            fontFamily: "Arial",
+            backgroundColor: "#6e6471",
+            fontWeight: "700",
+            justifyContent: "center",
+            paddingLeft: "5px",
+            paddingRight: "5px",
         },
         playButton: {
             backgroundColor: "transparent",
@@ -152,13 +168,20 @@ const AudioPlayer = (props: AudioPlayerProps) => {
             </Box>
 
             <Box sx={styles.controlsContainer}>
-                {props.currentSong.title}
-                <audio id = "player" src={props.currentSong.url} />
+                <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+                    <SkipPreviousIcon sx={styles.skipIcon} onClick={props.handlePreviousSong}/>
+                    <Typography sx={styles.nowPlayingTitle}>
+                        {props.currentSong.title}
+                    </Typography>
+                    <SkipNextIcon sx={styles.skipIcon} onClick={props.handleNextSong}/>
+                </Box>
+
+                <audio id="player" src={props.currentSong.url} />
                 <Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
                     <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5px" }}>
                         {convertTimeToDisplay(songProgress)}
                     </Box>
-                    <ProgressBar progressPercentage={getSongProgress()} setProgressPercentage={(newPercentage) => {setPlayerProgress(newPercentage)}} />
+                    <ProgressBar progressPercentage={getSongProgress()} setProgressPercentage={(newPercentage) => { setPlayerProgress(newPercentage) }} />
                     <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5px" }}>
                         {convertTimeToDisplay(getSongLength())}
                     </Box>
