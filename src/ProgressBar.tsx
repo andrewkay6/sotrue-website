@@ -6,8 +6,6 @@ interface ProgressBarProps {
   setProgressPercentage: (progressPercentage: number) => void;
 }
 
-
-
 const ProgressBar = (props: ProgressBarProps) => {
   const styles = {
     sliderStyle: {
@@ -32,7 +30,7 @@ const ProgressBar = (props: ProgressBarProps) => {
     <Box sx={{ height: "100%", width: "100%", display: "flex", flexDirection: "row", justifyContent: "center" }}>
       <Slider
         value={props.progressPercentage}
-        onChange={(event, newValue) => { props.setProgressPercentage(newValue as number) }}
+        onChange={(_, newValue) => { props.setProgressPercentage(newValue as number) }}
         size="small"
         aria-label="Progress"
         sx={styles.sliderStyle}
