@@ -32,22 +32,41 @@ const Header = (props: HeaderProps) => {
       fontSize: "40px",
       fontStyle: "italic",
       cursor: "pointer",
+      textAlign: "center",
       // backgroundColor: "#d3ccd4",
     },
-    navMenuButton: {
+    navMenuButtonContainer: {
       height: "48px",
       width: "48px",
       display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
+      flexDirection: "row",
+      justifyContent: "flex-start",
       alignItems: "center",
+      marginLeft: "10px",
+      flex: 1,
+    },
+    navMenuButton: {
       cursor: "pointer",
+    },
+    socialMediaIcons: {
+      cursor: "pointer",
+      fontSize: "30px",
+      marginLeft: "2px",
+      marginRight: "2px",
+    },
+    socialMediaLinksContainer: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "flex-end",
     },
   };
   return (
     <Box sx={styles.headerContainer}>
-      <Box sx={styles.navMenuButton} onClick={props.navMenuClick}>
-        <MenuIcon sx={{ transform: "scale(1.5)" }} />
+      <Box sx={styles.navMenuButtonContainer}>
+        <Box sx={styles.navMenuButton} onClick={props.navMenuClick}>
+          <MenuIcon sx={{ transform: "scale(1.5)" }} />
+        </Box>
       </Box>
 
       <Typography 
@@ -58,10 +77,10 @@ const Header = (props: HeaderProps) => {
         >
           SO TRUE
         </Typography>
-      <Box >
-        <FacebookIcon sx={{cursor: "pointer"}} onClick={() => {openLinkInNewTab(FACEBOOK_LINK)}}/>
-        <InstagramIcon sx={{cursor: "pointer"}} onClick={() => {openLinkInNewTab(INSTAGRAM_LINK)}}/>
-        <YoutubeIcon sx={{cursor: "pointer"}} onClick={() => {openLinkInNewTab(YOUTUBE_LINK)}}/>
+      <Box sx={styles.socialMediaLinksContainer}>
+        <FacebookIcon sx={styles.socialMediaIcons} onClick={() => {openLinkInNewTab(FACEBOOK_LINK)}}/>
+        <InstagramIcon sx={styles.socialMediaIcons} onClick={() => {openLinkInNewTab(INSTAGRAM_LINK)}}/>
+        <YoutubeIcon sx={styles.socialMediaIcons} onClick={() => {openLinkInNewTab(YOUTUBE_LINK)}}/>
       </Box>
     </Box>
   );

@@ -43,14 +43,6 @@ const NavMenu = (props: NavMenuProps) => {
       paddingTop: "5px",
       paddingBottom: "5px",
     },
-    comingSoonContainer: {
-      color: "black",
-      fontFamily: "Arial",
-      fontWeight: "700",
-      fontSize: "20px",
-      fontStyle: "italic",
-      textDecoration: "none",
-    },
     logoFont : {
       color: "Black",
       fontFamily: "Arial",
@@ -68,6 +60,9 @@ const NavMenu = (props: NavMenuProps) => {
         <Box sx={styles.allLinksContainer}>
           <Box sx={styles.linkContainer} onClick={() => { navigate("/") }}>Home</Box>     
           <Box sx={styles.linkContainer} onClick={() => { navigate("/contact") }}>Contact</Box>
+          {/* <Box sx={styles.linkContainer} onClick={() => { navigate("/song-picker")}}>Song Picker</Box> */}
+          <Box sx={styles.linkContainer} onClick={() => { navigate("/upcoming-events")}}>Upcoming Events</Box>
+          <Box sx={styles.linkContainer} onClick={() => { navigate("/merch")}}>Merch</Box>
         </Box>
       </Box>
     </Drawer>

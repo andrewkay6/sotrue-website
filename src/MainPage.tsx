@@ -10,14 +10,25 @@ const MainPage = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "rgba(176, 167, 178, 0.2)",
+        },
+        titleContainer: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            backgroundColor: "rgb(176, 167, 178)",
+            border: "1px solid black",
+            margin: '10px',
         },
     };
     return (
         <Box sx={styles.pageContainer}>
-            <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-                Featured Video
-            </Typography>
+            <Box sx={styles.titleContainer}>
+                <Typography variant="h4" sx={{ fontWeight: "700", padding: '10px', fontStyle: 'italic' }}>
+                    FEATURED VIDEO
+                </Typography>
+            </Box>
+            
             <FeaturedVideo />
         </Box>
     );

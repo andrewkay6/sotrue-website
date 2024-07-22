@@ -10,19 +10,16 @@ const ContactPage = () => {
             cursor: "pointer",
             fontSize: "40px",
         },
-
         pageContainer: {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            backgroundColor: "rgba(176, 167, 178, 0.2)",
             height: "100%",
             width: "100%",
         },
         contactInfoContainer: {
             border: "1px solid black",
-            // borderRadius: "10px",
             backgroundColor: "#6e6471",
             maxWidth: "800px",
             width: "100%",
