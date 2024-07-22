@@ -4,10 +4,9 @@ import NavMenu from "./NavMenu";
 import AudioPlayer from "./AudioPlayer";
 import Header from "./Header";
 import { Box } from "@mui/material";
-// import MainPage from "./MainPage";
 import { useState } from "react";
 import MainPage from "./MainPage";
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ContactPage from "./ContactPage";
 import { songs } from "./Songs";
 function App() {
@@ -29,9 +28,7 @@ function App() {
     return Math.floor(Math.random() * songs.length);
   }
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
-  // const [currentSong, setCurrentSong] = useState(songs[getRandomSongIndex()]);
-  const currentSong = songs[getRandomSongIndex()];
-  // setCurrentSong(songs[0])
+  const [currentSongIndex, setCurrentSongIndex] = useState(getRandomSongIndex());
   return (
 
       <Box sx={styles.appContainer} >
@@ -42,7 +39,10 @@ function App() {
             <Route path="/contact" element={<ContactPage /> } />
           </Routes>
         
-        <AudioPlayer currentSong={currentSong}/>
+        <AudioPlayer 
+          currentSong={songs[currentSongIndex]} 
+          handleNextSong={() => {setCurrentSongIndex((currentSongIndex + 1) % songs.length)}}
+          handlePreviousSong={() => {setCurrentSongIndex((currentSongIndex - 1) % songs.length)}}/>
       </Box>
 
   );
