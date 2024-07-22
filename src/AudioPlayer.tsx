@@ -17,7 +17,7 @@ const AudioPlayer = (props: AudioPlayerProps) => {
             boxSizing: "border-box",
             color: "black",
             height: "10%",
-            // width: "100%",
+            minHeight: "75px",
             display: "flex",
             flexDirection: "row",
             fontFamily: "Arial",
